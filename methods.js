@@ -11,8 +11,13 @@ Array.prototype.myEach = function (callbackFn) {
 };
 
 // MAP //
-Array.prototype.myMap = function() {
-  // Place your code here.
+Array.prototype.myMap = function(callbackFn) {
+    newArr = [...this] //make a copy of the original array
+    for (let i = 0; i < this.length; i++) {
+      if (newArr[i] === undefined) continue;
+      newArr[i] = callbackFn(this[i], i, this); //apply the call back function on the element and replacee the element with the return value
+    }
+    return newArr;
 };
 
 // SOME //
