@@ -21,8 +21,12 @@ Array.prototype.myMap = function(callbackFn) {
 };
 
 // SOME //
-Array.prototype.mySome = function() {
-  // Place your code here.
+Array.prototype.mySome = function(callbackFn) {
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] === undefined) continue;
+    if (callbackFn(this[i], i, this)) return true; // return true if at least one of the call backs return true
+  }
+  return false; // otherwise return false
 };
 
 // REDUCE //
