@@ -30,8 +30,13 @@ Array.prototype.mySome = function(callbackFn) {
 };
 
 // REDUCE //
-Array.prototype.myReduce = function() {
-  // Place your code here.
+Array.prototype.myReduce = function(callbackFn, initial) {
+    let result = initial !== undefined ? initial: this[0]; // initialize to initial value if specificed, otherwise use first value of array
+    for (let i = initial !== undefined ? 0: 1; i < this.length; i++) { // start at 0 if initia value is specified, otherwise start at 1
+        if (this[i] === undefined) continue;
+        result = callbackFn(result, this[i], i, this)
+    }
+  return result; // otherwise return false
 };
 
 // INCLUDES //
