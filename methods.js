@@ -14,19 +14,18 @@ Array.prototype.myEach = function (callbackFn) {
 Array.prototype.myMap = function(callbackFn) {
     newArr = [...this] //make a copy of the original array
     for (let i = 0; i < this.length; i++) {
-      if (newArr[i] === undefined) continue;
-      newArr[i] = callbackFn(this[i], i, this); //apply the call back function on the element and replacee the element with the return value
+        if (newArr[i] === undefined) continue;
+        newArr[i] = callbackFn(this[i], i, this); //apply the call back function on the element and replacee the element with the return value
     }
     return newArr;
 };
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
-  for (let i = 0; i < this.length; i++) {
-    if (this[i] === undefined) continue;
-    if (callbackFn(this[i], i, this)) return true; // return true if at least one of the call backs return true
-  }
-  return false; // otherwise return false
+    for (let i = 0; i < this.length; i++) {
+      if (callbackFn(this[i], i, this)) return true; // return true if at least one of the call backs return true
+    }
+    return false; // otherwise return false
 };
 
 // REDUCE //
