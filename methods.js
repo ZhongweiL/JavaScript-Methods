@@ -30,18 +30,23 @@ Array.prototype.mySome = function(callbackFn) {
 };
 
 // REDUCE //
-Array.prototype.myReduce = function(callbackFn, initial) {
-    let result = initial !== undefined ? initial: this[0]; // initialize to initial value if specificed, otherwise use first value of array
-    for (let i = initial !== undefined ? 0: 1; i < this.length; i++) { // start at 0 if initia value is specified, otherwise start at 1
+Array.prototype.myReduce = function(callbackFn, initialValue) {
+    let result = initialValue !== undefined ? initialValue: this[0]; // initialize to initial value if specificed, otherwise use first value of array
+    for (let i = initialValue !== undefined ? 0: 1; i < this.length; i++) { // start at 0 if initia value is specified, otherwise start at 1
         if (this[i] === undefined) continue;
         result = callbackFn(result, this[i], i, this)
     }
-  return result; // otherwise return false
+    return result; // otherwise return false
 };
 
 // INCLUDES //
-Array.prototype.myIncludes = function() {
-  // Place your code here.
+Array.prototype.myIncludes = function(searchElement, fromIndex) {
+    for (let i = fromIndex !== undefined? Math.max(fromIndex, 0): 0; i < this.length; i++) { // start from a specified index if specified, otherwise 0
+        //if (this[i] === undefined) continue;
+        if (this[i] === searchElement) return true; // return true if at least one of the elements equals to the value
+        if (isNaN(this[i] && isNaN(searchElement))) return true; // return true if both the search element and the element is NaN
+      }
+    return false; // otherwise return false
 };
 
 // INDEXOF //
