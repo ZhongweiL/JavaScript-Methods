@@ -40,8 +40,11 @@ Array.prototype.myReduce = function(callbackFn, initialValue) {
 
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement, fromIndex) {
-    for (let i = fromIndex !== undefined? Math.max(fromIndex, 0): 0; i < this.length; i++) { // start from a specified index if specified, otherwise 0
-        //if (this[i] === undefined) continue;
+    let start = fromIndex !== undefined? fromIndex: 0;
+    if (start < 0) { // if the given index is negative, take it as a offset from the end of the array. If the result is still negative, take it as 0
+        start = Math.max(this.length + fromIndex, 0);
+    }
+    for (let i = start; i < this.length; i++) { // start from a specified index if specified, otherwise 0
         if (this[i] === searchElement) return true; // return true if at least one of the elements equals to the value
         if (isNaN(this[i] && isNaN(searchElement))) return true; // return true if both the search element and the element is NaN
       }
@@ -49,8 +52,16 @@ Array.prototype.myIncludes = function(searchElement, fromIndex) {
 };
 
 // INDEXOF //
-Array.prototype.myIndexOf = function() {
-  // Place your code here.
+Array.prototype.myIndexOf = function(searchElement, fromIndex) {
+    let start = fromIndex !== undefined? fromIndex: 0;
+    if (start < 0) { // if the given index is negative, take it as a offset from the end of the array. If the result is still negative, take it as 0
+        start = Math.max(this.length + fromIndex, 0);
+    }
+    for (let i = start; i < this.length; i++) {
+        if (this[i] === searchElement) return i; // return the index number if the element is equans to the search element
+        if (isNaN(this[i] && isNaN(searchElement))) return i; // return the index number if they are both NaN
+      }
+    return -1; // return -1 otherwise
 };
 
 // PUSH //
