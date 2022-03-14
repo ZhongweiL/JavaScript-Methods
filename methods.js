@@ -60,7 +60,7 @@ Array.prototype.myIndexOf = function(searchElement, fromIndex) {
     for (let i = start; i < this.length; i++) {
         if (this[i] === searchElement) return i; // return the index number if the element is equans to the search element
         if (isNaN(this[i] && isNaN(searchElement))) return i; // return the index number if they are both NaN
-      }
+    }
     return -1; // return -1 otherwise
 };
 
@@ -77,8 +77,17 @@ Array.prototype.myPush = function(...args) {  // Use rest parameter to accept an
 };
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
-  // Place your code here.
+Array.prototype.myLastIndexOf = function(searchElement, fromIndex) {
+    let start = fromIndex !== undefined? Math.min(fromIndex, this.length-1): this.length-1; // default start index to be the last index, and if the given index is larger than the last index, start from the last index
+    if (start < 0) { // if the given index is negative, take it as a offset from the end of the array.
+      start = this.length + fromIndex;
+    }
+    if (start < 0) return -1 // if it's still negative, return -1
+    for (let i = start; i >= 0; i--) {
+        if (this[i] === searchElement) return i; // return the index number if the element is equans to the search element
+        if (isNaN(this[i] && isNaN(searchElement))) return i; // return the index number if they are both NaN
+    }
+    return -1; // return -1 otherwise
 };
 
 // KEYS //
