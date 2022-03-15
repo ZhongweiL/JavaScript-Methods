@@ -98,6 +98,8 @@ Object.myKeys = function(obj) {
 };
 
 // VALUES //
-Object.myValues = function() {
-  // Place your code here.
+Object.myValues = function(obj)  {
+    let arr = [];
+    for (let key in obj) arr.push(obj[key]); // iterate through the object and take out all the values
+    return arr;
 };
