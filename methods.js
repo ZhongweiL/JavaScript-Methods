@@ -23,7 +23,7 @@ Array.prototype.myMap = function(callbackFn) {
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
     for (let i = 0; i < this.length; i++) {
-      if (callbackFn(this[i], i, this)) return true; // return true if at least one of the call backs return true
+        if (callbackFn(this[i], i, this)) return true; // return true if at least one of the call backs return true
     }
     return false; // otherwise return false
 };
@@ -47,7 +47,7 @@ Array.prototype.myIncludes = function(searchElement, fromIndex) {
     for (let i = start; i < this.length; i++) { // start from a specified index if specified, otherwise 0
         if (this[i] === searchElement) return true; // return true if at least one of the elements equals to the value
         if (isNaN(this[i] && isNaN(searchElement))) return true; // return true if both the search element and the element is NaN
-      }
+    }
     return false; // otherwise return false
 };
 
@@ -66,14 +66,14 @@ Array.prototype.myIndexOf = function(searchElement, fromIndex) {
 
 // PUSH //
 Array.prototype.myPush = function(...args) {  // Use rest parameter to accept any number of input arguments
-  let args_index = 0;  // Index of new element
-  let length = this.length;   // Length of "this" array
-  // The last element of "this" array is at length - 1
-  for (let i = length; i < length + args.length; i++) {
-      this[i] = args[args_index];  // Add new element to end of "this" array
-      args_index++;
-  }
-  return this.length;  // Return new length of "this" array
+    let args_index = 0;  // Index of new element
+    let length = this.length;   // Length of "this" array
+    // The last element of "this" array is at length - 1
+    for (let i = length; i < length + args.length; i++) {
+        this[i] = args[args_index];  // Add new element to end of "this" array
+        args_index++;
+    }
+    return this.length;  // Return new length of "this" array
 };
 
 // LASTINDEXOF //
