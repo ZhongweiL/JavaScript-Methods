@@ -91,8 +91,10 @@ Array.prototype.myLastIndexOf = function(searchElement, fromIndex) {
 };
 
 // KEYS //
-Object.myKeys = function() {
-  // Place your code here.
+Object.myKeys = function(obj) {
+    let arr = [];
+    for (let key in obj) arr.push(key); // iterate through the object and take out all the keys
+    return arr;
 };
 
 // VALUES //
